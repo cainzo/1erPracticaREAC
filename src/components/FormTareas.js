@@ -1,20 +1,43 @@
-import React from 'react';
-import ListaTareas from './ListaTareas';
+import React, { useState } from "react";
+import ListaTareas from "./ListaTareas";
 
 const FormTareas = () => {
-    return (
-        <>
-        <form className=' container my-5'>
-            <div className='mb-3 d-flex'>
-            <input type="text" placeholder="Ingrese una tarea" className='form-control'/>
-            <button className='btn btn-outline-light'>Agregar</button>
-            </div>
-        </form>
-        <section className='container'>
-            <ListaTareas></ListaTareas>
-        </section>
-        </>
-    );
+  // aqui va la logica
+  // crear los estados necesarios
+  const [tareaIndividual, setTareaIndividual] = useState("");
+  const [tareas, setTareas] = useState([]);
+
+  //funciones para setear
+  function guardarTarea(e) {
+   // console.log(e.target.value);
+   setTareaIndividual(e.target.value);
+  }
+  function handleSubmit(e) {
+      e.preventDefault();
+      console.log('xXx');
+      setTareas([...tareas, tareaIndividual]);
+  }
+
+
+  return (
+    // aqui va el maquetado y poca logica
+    <>
+      <form className=" container my-5" onSubmit={handleSubmit}>
+        <div className="mb-3 d-flex">
+          <input
+            type="text"
+            placeholder="Ingrese una tarea"
+            className="form-control"
+            onChange={guardarTarea}
+          />
+          <button className="btn btn-outline-light">Agregar</button>
+        </div>
+      </form>
+      <section className="container">
+        <ListaTareas></ListaTareas>
+      </section>
+    </>
+  );
 };
 
 export default FormTareas;
