@@ -19,6 +19,13 @@ const FormTareas = () => {
       //limpiar el import 
       setTareaIndividual('');
   };
+
+  function borrarTarea(nombre) {
+    
+    let arregloModificado = tareas.filter((tarea)=>{return tarea !== nombre})
+    //console.log(arregloModificado);
+    setTareas(arregloModificado);
+  };
   return (
     // aqui va el maquetado y poca logica
     <>
@@ -35,7 +42,7 @@ const FormTareas = () => {
         </div>
       </form>
       <section className="container">
-        <ListaTareas arregloTareas={tareas}></ListaTareas>
+        <ListaTareas arregloTareas={tareas} borrarTarea={borrarTarea}></ListaTareas>
       </section>
     </>
   );
