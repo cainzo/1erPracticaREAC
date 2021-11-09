@@ -11,14 +11,14 @@ const FormTareas = () => {
   function guardarTarea(e) {
    // console.log(e.target.value);
    setTareaIndividual(e.target.value);
-  }
+  };
   function handleSubmit(e) {
       e.preventDefault();
       console.log('xXx');
       setTareas([...tareas, tareaIndividual]);
-  }
-
-
+      //limpiar el import 
+      setTareaIndividual('');
+  };
   return (
     // aqui va el maquetado y poca logica
     <>
@@ -29,12 +29,13 @@ const FormTareas = () => {
             placeholder="Ingrese una tarea"
             className="form-control"
             onChange={guardarTarea}
+            value={tareaIndividual}
           />
           <button className="btn btn-outline-light">Agregar</button>
         </div>
       </form>
       <section className="container">
-        <ListaTareas></ListaTareas>
+        <ListaTareas arregloTareas={tareas}></ListaTareas>
       </section>
     </>
   );
