@@ -6,7 +6,7 @@ const FormTareas = () => {
   // crear los estados necesarios
   let tareasLocalStorage = JSON.parse(localStorage.getItem('listaTareas')) || [];
   const [tareaIndividual, setTareaIndividual] = useState("");
-  const [tareas, setTareas] = useState(tareasLocalStoragegit);
+  const [tareas, setTareas] = useState(tareasLocalStorage);
   //const [tareas, setTareas] = useState([]);
 
   //aqui uso el ciclo de vida de un componente
